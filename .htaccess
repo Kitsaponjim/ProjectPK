@@ -1,0 +1,20 @@
+RewriteEngine On
+
+#RewriteCond %{HTTPS} !=on
+#RewriteCond %{REQUEST_URI} !^/preview
+#RewriteCond %{QUERY_STRING} !^/preview
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+
+
+
+#<IfModule authz_core_module>
+#    Require all denied
+#</IfModule>
+#<IfModule !authz_core_module>
+#    Deny from all
+#</IfModule>
